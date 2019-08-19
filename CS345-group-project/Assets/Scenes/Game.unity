@@ -130,6 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111513355}
   - component: {fileID: 111513354}
+  - component: {fileID: 111513356}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -149,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c5a6300d443be48bc4350bcbafadec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _swapped: 0
   _FPSController: {fileID: 2024042746}
   _objects:
   - {fileID: 2102924124250010828, guid: 6d9ad689be4b7d34a902828b2ab4b22a, type: 3}
@@ -168,6 +170,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111513356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111513353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c6509a3944d4242b451c0dc798a2fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &121911462
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b52517505fc3194d97b59a95b639e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2024042747}
+  player: {fileID: 2024042746}
   detectText: {fileID: 122353896}
   enemy: {fileID: 402754025}
 --- !u!136 &402754027
