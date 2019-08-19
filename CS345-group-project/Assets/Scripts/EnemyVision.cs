@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnemyVision : MonoBehaviour
 {
     bool detectPlayer;
-    public Transform player;
+    public GameObject player;
     public Text detectText;
     public Transform enemy;
     // Start is called before the first frame update
@@ -20,12 +21,12 @@ public class EnemyVision : MonoBehaviour
     {
         if (detectPlayer)
         {
-            Vector3 dir = player.position - enemy.position + Vector3.up;
+            Vector3 dir = player.transform.position - enemy.position + Vector3.up;
             Ray ray = new Ray(enemy.position, dir);
             RaycastHit raycastHit;
-            if (Physics.Raycast(ray, out raycastHit))
+            if (Physics.Raycast(ray, out raycastHit) && player.activeSelf)
             {
-                detectText.text = "Detected";
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             else
             {

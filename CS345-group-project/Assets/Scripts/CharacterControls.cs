@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class CharacterSwap : MonoBehaviour
+public class CharacterControls : MonoBehaviour
 {
-    private bool _swapped;
+
     private int _index = 0;
     private GameObject _curObject;
-
+    public bool _swapped;
     public GameObject _FPSController;
     public List<GameObject> _objects;
+    public Scene Menu;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,10 @@ public class CharacterSwap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (_swapped)
@@ -30,7 +36,7 @@ public class CharacterSwap : MonoBehaviour
             }
             else
             {
-                _curObject = (GameObject) Instantiate(_objects[_index], new Vector3(_FPSController.transform.position.x,_FPSController.transform.position.y - .5f,_FPSController.transform.position.z), Quaternion.identity);
+                _curObject = (GameObject) Instantiate(_objects[_index], new Vector3(_FPSController.transform.position.x,_objects[_index].transform.position.y,_FPSController.transform.position.z), _objects[_index].transform.rotation);
                 _FPSController.SetActive(false);
                 _swapped = true;
                 
