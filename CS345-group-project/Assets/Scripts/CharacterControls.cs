@@ -8,10 +8,9 @@ public class CharacterControls : MonoBehaviour
 
     private int _index = 0;
     private GameObject _curObject;
-    public bool _swapped;
+    private bool _swapped;
     public GameObject _FPSController;
     public List<GameObject> _objects;
-    public Scene Menu;
     // Start is called before the first frame update
     void Start()
     {
