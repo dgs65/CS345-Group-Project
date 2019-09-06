@@ -8,6 +8,6 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex +1 ) % 4);
     }
 }

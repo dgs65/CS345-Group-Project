@@ -11,6 +11,8 @@ public class CharacterControls : MonoBehaviour
     private bool _swapped;
     public GameObject _FPSController;
     public List<GameObject> _objects;
+    public GameObject AlienUI;
+    public GameObject MimicUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class CharacterControls : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene(0);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -33,12 +35,16 @@ public class CharacterControls : MonoBehaviour
             {
                 Destroy(_curObject);
                 _FPSController.SetActive(true);
+                AlienUI.SetActive(true);
+                MimicUI.SetActive(false);
                 _swapped = false;
             }
             else
             {
                 _curObject = (GameObject) Instantiate(_objects[_index], new Vector3(_FPSController.transform.position.x,_objects[_index].transform.position.y,_FPSController.transform.position.z), _objects[_index].transform.rotation);
                 _FPSController.SetActive(false);
+                AlienUI.SetActive(false);
+                MimicUI.SetActive(true);
                 _swapped = true;
                 
             }
